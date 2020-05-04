@@ -1,0 +1,48 @@
+.dd-wrapper {
+  .dd-header-title {
+    display: flex;
+    align-items: baseline;
+    span {
+      margin-right: 0.5%;
+    }
+    img {
+      cursor: pointer;
+      margin-top: auto;
+      width: 10px;
+      margin-bottom: 2px;
+      margin-left: 5px;
+      filter: invert(0%) sepia(0%);
+      &.down{
+        transition: 0.70s;
+      }
+      &.up{
+        transition: 0.70s;
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .dd-list {
+    background-color: inherit !important;
+    color: black;
+    position: absolute;
+    float: left;
+    padding: 0;
+    list-style-type: none;
+    border-radius: 2px;
+    &.show {
+      transition: 0.70s;
+      display: block;
+      z-index: 1;
+    }
+    &.hide {
+      transition: 0.70s;
+      display:none;
+    }
+    li {
+      width: 3vw;
+      &.selected{
+        display: none;
+      }
+    }
+  }
+}
