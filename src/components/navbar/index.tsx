@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
+import logo from '../../assets/logo/sageco.svg';
 import './index.scss';
 import Dropdown from '../dropdown';
 
@@ -7,10 +8,7 @@ function Navbar() {
   const [active, setActive] = useState(0);
   
   const nav:any = {
-    "/about": 1,
-    "/media": 2,
-    "/events": 3,
-    "/contact":4
+    "/work": 0,
   }
   
   if(active !== nav[window.location.pathname]){
@@ -19,18 +17,30 @@ function Navbar() {
   
   return (
     <div className="navbar">
-      <nav className="navbar container">
+      <nav className="container">
         <div className="left">
-          <Link to="/" onClick={()=>setActive(0)}>Template</Link>
+          <Link to="/" onClick={()=>setActive(0)}>
+            <img src={logo} alt="sage logo"/>
+          </Link>
+          <Link className={`hide-on-mobile ${active === 0?"active":""}` } to="/work" onClick={()=>setActive(0)}>Our Work</Link>
+          {
+            Dropdown({
+                className: "hide-on-mobile",
+                options: 
+                [{
+                  header: "Our Process",
+                  children: ["How we work", "FAQs"],
+                  link: ["1", "2"],
+                }, {
+                  header: "Information",
+                  children: ["Our Team", "Manifesto"],
+                  link: ["1", "2"],
+                }]
+            })
+          }
         </div>
         <div className="right">
-          <Link className={active === 1?"active":""} to="/about" onClick={()=>setActive(1)}>About</Link>
-          <Link className={active === 2?"active":""} to="/media" onClick={()=>setActive(2)}>Media</Link>
-          <Link className={active === 3?"active":""} to="/events" onClick={()=>setActive(3)}>Events</Link>
-          <Link className={active === 4?"active":""} to="/contact" onClick={()=>setActive(4)}>Contact</Link>
-          {Dropdown({
-            options: ["EN", "FR", "SP"]
-          })}
+          <Link className={active === 1?"active":""} to="/about" onClick={()=>setActive(1)}>Start a Project</Link>
         </div>
       </nav>
     </div>

@@ -1,6 +1,6 @@
-# Template
+# SageCo Website!
 
-![Build and Deploy](https://github.com/thesageco/template/workflows/Build%20and%20Deploy/badge.svg?branch=master)
+![Build and Deploy](https://github.com/thesageco/website/workflows/Build%20and%20Deploy/badge.svg?branch=master)
 
 Used as the base template for all our projects!
 

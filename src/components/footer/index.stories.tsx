@@ -1,5 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import {Router} from "react-router-dom";
+import history from '../../history';
 import '@storybook/addon-console';
 import Footer from '../footer'
 
@@ -10,6 +12,8 @@ export default {
 
 export const Default = () =>  {
   return (
-      <Footer />
+      <Router history={history}>
+        <Footer />
+      </Router>
   );
 }

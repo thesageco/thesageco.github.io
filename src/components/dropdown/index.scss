@@ -1,10 +1,9 @@
 .dd-wrapper {
+  background-color: white;
+  opacity: 1;
   .dd-header-title {
     display: flex;
     align-items: baseline;
-    span {
-      margin-right: 0.5%;
-    }
     img {
       cursor: pointer;
       margin-top: auto;
@@ -13,15 +12,19 @@
       margin-left: 5px;
       filter: invert(0%) sepia(0%);
       &.down{
-        transition: 0.70s;
+        transition: 0.66s;
       }
       &.up{
-        transition: 0.70s;
+        transition: 0.66s;
+        opacity: 0.2;
         transform: rotate(180deg);
       }
     }
   }
   .dd-list {
+    border: 1px solid #F2F2F2;
+    width: 10rem;
+    box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.05), 0px 4px 8px rgba(0, 0, 0, 0.1);
     background-color: inherit !important;
     color: black;
     position: absolute;
@@ -30,18 +33,32 @@
     list-style-type: none;
     border-radius: 2px;
     &.show {
-      transition: 0.70s;
-      display: block;
-      z-index: 1;
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
     }
     &.hide {
-      transition: 0.70s;
-      display:none;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s ease-out 0.33s, opacity 1s ease-out;
+    }
+    .header {
+      font-weight: bold;
+    }
+    p, li {
+      padding: 0.2rem 1rem;
+    }
+    p {
+      padding-top: 1rem;
+    }
+    li:last-child{
+      margin-bottom: 1rem;
     }
     li {
-      width: 3vw;
-      &.selected{
-        display: none;
+      a {
+        text-decoration: none;
+        outline: none;
+        color: #62646A;
       }
     }
   }

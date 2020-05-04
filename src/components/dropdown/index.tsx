@@ -1,44 +1,50 @@
-import React, { useState, useContext, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import './index.scss';
-import { LanguageSetStore } from '../../App'
+import {Link} from 'react-router-dom';
 import down from '../../assets/icons/down-arrow-2.svg'
 
+interface DropDownHeader {
+  header: String;
+  children: string[];
+  link: string[];
+}
 interface DropdownProp {
-  options: String[];
+  className?: string;
+  options: DropDownHeader[];
 }
 
 export default function Dropdown(props: DropdownProp) {
-  const [state, setState] = useState(props);
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const dispatch = useContext(LanguageSetStore);
   
   function toggleOpen() {
     setOpen(!open);
   }
   
-  function handleClick(e: MouseEvent, i: number, lang: String) {
-    e.preventDefault()
-    // @ts-ignore
-    dispatch({action: 'update', lang: lang});
-    setActiveIndex(i);
-    toggleOpen();
-    e.stopPropagation();
-  }
+  
+  let dropdown_contents = props.options.map((heading, i) => {
+    let children = heading.children.map((child, j) => {
+      if (heading.link[j] !== ""){
+        return <li key={String(i) + String(j)}>
+          <Link to={heading.link[j]}>{child}</Link>
+        </li>;
+      }
+      return <li key={String(i) + String(j)}>{child}</li>;
+    })
+    children.unshift(<p className="header" key={i}>{heading.header}</p>);
+    return (children);
+  })
   
   return (
-    <div className="dd-wrapper">
+    <div className={`dd-wrapper ${props.className}`}>
       <div className="dd-header">
         <div className="dd-header-title" onClick={toggleOpen}>
-          <span>{state.options[activeIndex]}</span>
+          <span>About Us</span>
           <img alt="down arrow" src={down} className={`${open?"up":"down"}`}/>
         </div>
         
       </div>
       <ul className={`dd-list ${open?"show":"hide"}`}>
-        {state.options.map((lang, i) => {
-          return <li className={`dd-list-item ${activeIndex === i?"selected":""}`} onClick={(e) => handleClick(e, i, lang)} key={i}>{lang}</li>
-        })}
+        {dropdown_contents}
       </ul>
     </div>
   );

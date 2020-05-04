@@ -12,9 +12,11 @@ export default {
 export const Normal = () =>  {
   return (
   <LanguageSetStore.Provider value={action('LangChanged')}>
-    {Dropdown({
-      options: ["Option1", "Option2", "Option3"]
-    })}
+    {Dropdown({options: [{
+      header: "Test",
+      children: ["Option1", "Option2", "Option3"],
+      link: ["", "", ""],
+    }]})}
   </LanguageSetStore.Provider>
 )
 }
