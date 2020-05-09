@@ -7,9 +7,9 @@ enum ButtonType {
 }
 
 interface ButtonProp {
-  text: String;
+  text: JSX.Element | string;
   href: string;
-  type: ButtonType;
+  type: string;
 }
 
 export default function Button(props: ButtonProp) {

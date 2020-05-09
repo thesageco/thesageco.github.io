@@ -1,34 +1,113 @@
 .contact-us {
   font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   form {
     display: flex;
+    &.full-form {
+      flex-direction: column;
+    }
     flex-direction: row;
+    align-items: center;
     @media only screen and (max-width: 769px){
       flex-direction: column;
       align-items: center;
     }
-    input {
-      width: 30vw;
-      @media only screen and (max-width: 769px){
-        width: 80vw;
-        margin-bottom: 1vh;
-      }
-      padding: 1vh 1vw;
+    input, textarea {
+      padding: 2vh 1vw;
       border: 1px solid #BDBDBD;
-      margin-right: 1vw;
       border-radius: 3px;
       font-size: 1rem;
+      &::placeholder {
+        color: #BDBDBD;
+      }
+    }
+    .name-email {
+      display: flex;
+      @media only screen and (max-width: 769px){
+        flex-direction: column;
+        align-items: center;
+      }
+      input {
+        width: 30vw;
+        &:first-child {
+          margin-right: 1vw;
+        }
+        @media only screen and (max-width: 769px){
+          width: 80vw;
+          margin-bottom: 1vh;
+          margin-right: unset;
+        }
+      }
+    }
+    
+    .message {
+      textarea {
+        margin-top: 1vh;
+        width: 61vw;
+        min-width: 61vw;
+        max-width: 61vw;
+        @media only screen and (max-width: 769px){
+          width: 80vw;
+          min-width: 80vw;
+          max-width: 80vw;
+          margin-bottom: 1vh;
+        }
+        height: 30vh;
+        min-height: 10vh;
+      }
+    }
+    &.full-form {
+      .send {
+        margin-top: 1vh;
+        width: 61vw;
+        display: flex;
+        justify-content: space-between;
+        @media only screen and (max-width: 769px){
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+      }
+      button {
+        font-size: 1rem;
+        padding: 2vh 1vw;
+        min-width: 8vw;
+        color: #3873F9;
+        background: #FFFFFF;
+        border: 2px solid #A5C6FE;
+        box-sizing: border-box;
+        border-radius: 3px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        img {
+          margin-bottom: -1px;
+          margin-left: 1vw;
+        }
+      }
+      
+      .loader {
+        border: 0.5rem solid #F8FAFF; 
+        border-top: 0.5rem solid rgba(56,115,249, 0.5);
+        border-radius: 50%;
+        height: 1.5vh;
+        width: 1.5vh;
+        animation: spin 2s linear infinite;
+      }
     }
     button {
+      cursor: pointer;
       font-size: 1rem;
       color: #F8FAFF;
-      padding: 1vh 1vw;
+      padding: 2vh 1vw;
       background: #3873F9;
       border-radius: 3px;
       min-width: 8vw;
       display: flex;
       justify-content: center;
-      
+      border: 0px;
     }
     .loader {
       border: 0.5rem solid #F8FAFF; 
@@ -43,6 +122,19 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+  }
+  .apply {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #4F4F4F;
+    a {
+      text-decoration: underline;
+    }
+  }
+  .fun {
+    height: 50vh;
+    max-width: 100vw;
   }
   
 }

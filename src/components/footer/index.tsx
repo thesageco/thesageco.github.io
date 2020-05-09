@@ -8,7 +8,7 @@ export default function Footer() {
       <footer className="footer-content">
         <div className="align-as-col">
           <div className="left">
-            <Link to="/team">Our Team</Link>
+            <Link to="/about">Our Team</Link>
             <Link to="/terms">Terms and Conditions</Link>
             <Link to="/privacy">Privacy Policy</Link>
           </div>

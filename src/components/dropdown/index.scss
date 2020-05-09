@@ -40,7 +40,7 @@
     &.hide {
       visibility: hidden;
       opacity: 0;
-      transition: visibility 0s ease-out 0.33s, opacity 1s ease-out;
+      transition: visibility 0s ease-out 0.66s, opacity 0.66s ease-out;
     }
     .header {
       font-weight: bold;

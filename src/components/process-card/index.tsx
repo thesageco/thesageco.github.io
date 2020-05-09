@@ -4,21 +4,24 @@ import './index.scss';
 interface ProcessCardProp {
   header: String;
   subtext: ReactNode;
-  icon: string;
+  icon?: string;
   image: string;
   image_alt: string;
-  direction?: 'left' | 'right'
+  size?: 'normal' | 'large';
+  shadow?: 'normal' | 'none';
+  direction?: 'left' | 'right';
 }
 export default function ProcessCard(props: ProcessCardProp) {
+  const {size = 'normal', shadow = 'normal'} = props;
   return (
     <div className={`process-card ${props.direction ? "right" : "left"}`}>
       <div className="process-text">
-        <img src={props.icon} alt={props.image_alt}/>
+        {props.icon ? <img src={props.icon} alt={props.image_alt}/> : <></>}
         <p className="header">{props.header}</p>
         <div className="subtext">{props.subtext}</div>
       </div>
-      <div className="process-img">
-        <img src={props.image} alt={props.image_alt}/>
+      <div className={`process-img ${size}`}>
+        <img className={shadow} src={props.image} alt={props.image_alt}/>
       </div>
     </div>
   );

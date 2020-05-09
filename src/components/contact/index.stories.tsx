@@ -9,5 +9,5 @@ export default {
 };
 
 export const Normal = () =>  {
-  return Contact()
+  return Contact({})
 }

@@ -1,0 +1,31 @@
+.footer {
+  margin: 1rem 0;
+  font-size: 0.8rem;
+  display: flex;
+  .footer-content {
+    width: 100%;
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .left {
+        img {
+          max-height: 4vh;
+        }
+      }
+      .right {
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        @media only screen and (max-width: 769px){
+          width: 100%;
+          flex-direction: column;
+          text-align: right;
+          margin-right: 2vw;
+        }
+      }
+    }
+  }
+  
+}
