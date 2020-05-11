@@ -20,7 +20,7 @@ export const Default = () =>  {
   return (
     <Router history={history}>
       <LanguageSetStore.Provider value={action('LangChanged')}>
-          <Navbar />
+          <Navbar hidden={false}/>
       </LanguageSetStore.Provider>
     </Router>
   );

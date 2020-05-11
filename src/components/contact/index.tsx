@@ -71,7 +71,6 @@ export default function Contact(props: ContactProps) {
             />
           </div>
           <div className="send">
-            <p className="apply">Are you a student looking for work? <a href="#!">Apply Here</a></p>
             <button type="submit" disabled={submitted}>{clicked ? (submitted?"Submitted!":<div className="loader"></div>):<span>Send Message<img src={right_arrow} alt="submit arrow"/></span>}</button>
           </div>
         </form>
@@ -96,7 +95,6 @@ export default function Contact(props: ContactProps) {
           </div>
         </div>
       </form>
-      <p className="apply">Are you a student looking for work? <a href="#!">Apply Here</a></p>
     </div>
   );
 

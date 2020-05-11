@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://thesage.co/website/",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.19.15",
     "@storybook/addon-console": "^1.2.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -52,6 +53,7 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
+    "@types/brainhubeu__react-carousel": "^1.15.0",
     "react-docgen-typescript-loader": "^3.7.2",
     "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.2"

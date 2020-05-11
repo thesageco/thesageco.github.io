@@ -1,5 +1,6 @@
 .footer {
   margin: 1rem 0;
+  padding: 0 1rem;
   font-size: 0.8rem;
   display: flex;
   .footer-content {
@@ -9,6 +10,10 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      
+      @media only screen and (max-width: 769px){
+        align-items: flex-end;
+      }
       .left {
         img {
           max-height: 4vh;
@@ -23,6 +28,9 @@
           flex-direction: column;
           text-align: right;
           margin-right: 2vw;
+          a {
+            margin-bottom: 1.2vh;
+          }
         }
       }
     }

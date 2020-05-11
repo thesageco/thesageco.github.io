@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
-import Navbar from '../../components/navbar';
-import Hamburger from '../../components/hamburger';
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 import Contact from '../../components/contact';
 import Blurb from '../../components/blurb';
 import ProcessCard from '../../components/process-card';
@@ -19,13 +19,10 @@ import design from '../../assets/process/design.png';
 import building from '../../assets/process/building.png';
 import peace2 from '../../assets/process/peace.png';
 
-
 export default function Home() {
 
   return (
   <>
-    <Navbar />
-    <Hamburger />
     <div className="home">
       {BannerText({
         type: BannerType.GenZ
@@ -36,17 +33,44 @@ export default function Home() {
       <div className="blurbs container">
         {Blurb({
           name: "Antonio Llaca",
-          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”",
+          text: "“I was truly happy with the work that the team at Sage.co did to set up my website. [They] were always available to answer my questions and quick to offer and implement solutions for me. It was really a pleasure working with them”",
         })}
         {Blurb({
           name: "Lumen Graphics",
-          text: "“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”",
+          text: "“Sage Co has quick and personal customer service! They were able to create the perfect website for my company with attention to design and functionality.”",
         })}
         {Blurb({
           name: "Ruslan Nikolaev",
           text: `“The Sage team quickly delivered on the website when we needed it the most and was great at communicating throughout the development process.”`,
         })}
       </div>
+      <div className="mobile-blurbs container">
+        <Carousel
+          slidesPerPage={1.2}
+          centered
+          infinite
+          stopAutoPlayOnHover
+          autoPlay={4000}
+          animationSpeed={1000}
+        >
+          {Blurb({
+            key: 0,
+            name: "Ruslan Nikolaev",
+            text: `“The Sage team quickly delivered on the website when we needed it the most and was great at communicating throughout the development process.”`,
+          })}
+          {Blurb({
+            key: 1,
+            name: "Antonio Llaca",
+            text: "“I was truly happy with the work that the team at Sage.co did to set up my website. [They] were always available to answer my questions and quick to offer and implement solutions for me. It was really a pleasure working with them”",
+          })}
+          {Blurb({
+            key: 2,
+            name: "Lumen Graphics",
+            text: "“Sage Co has quick and personal customer service! They were able to create the perfect website for my company with attention to design and functionality.”",
+          })}
+        </Carousel>
+      </div>
+      
       {BannerText({
         type: BannerType.GoodCompany
       })}

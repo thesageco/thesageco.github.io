@@ -1,7 +1,5 @@
 import React from 'react';
 import './index.scss';
-import Navbar from '../../components/navbar';
-import Hamburger from '../../components/hamburger';
 import Contact from '../../components/contact';
 import ProcessCard from '../../components/process-card';
 import { BannerType, BannerText } from '../../components/banner-text';
@@ -15,8 +13,6 @@ export default function About() {
 
   return (
   <>
-    <Navbar />
-    <Hamburger />
     <div className="about container">
       <div className="who-we-are">
         {BannerText({

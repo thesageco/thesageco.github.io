@@ -11,14 +11,16 @@ export default function SmallFooter() {
         
         <div className="container">
           <div className="left">
-            <img src={sage_full} alt="sage icon"/>
+            <Link to="/">
+              <img src={sage_full} alt="sage icon"/>
+            </Link>
           </div>
           <div className="right">
             <Link to="/work">Our Work</Link>
-            <Link to="/terms">About Us</Link>
-            <a target="blank" href="https://www.linkedin.com/company/thesageco/">Linkedin</a>
-            <a target="blank" href="mailto:hello@thesage.co?Subject=Saying Hello!">Email</a>
-            <a target="blank" href="/">Book a Meeting</a>
+            <Link to="/about">About Us</Link>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/thesageco/">Linkedin</a>
+            <a target="_blank" rel="noopener noreferrer" href="mailto:hello@thesage.co?Subject=Saying Hello!">Email</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://calendly.com/emilepatry">Book a Meeting</a>
           </div>
         </div>
       </footer>

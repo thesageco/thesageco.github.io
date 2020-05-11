@@ -10,6 +10,7 @@ enum BannerType {
   LetsChat = 6,
   TalkSoon,
   Lost,
+  PixelPushers,
 }
 
 interface BannerTextProp {
@@ -21,7 +22,7 @@ export default function BannerText(props: BannerTextProp) {
     case BannerType.GenZ: 
       className="generationZ";
       header= "Generation Z is in the house";
-      text= <div className={className}><p>Build your next website or app with our team of student <span id="i1">designers</span>, <span id="i2">developers</span>, and <span id="i3">marketing&nbsp;specialists</span>.</p></div>;
+      text= <div className={className}><p>Build your next website or app with our team of student <span id="i1">designers</span>, <span id="i2">developers</span>, and <span id="i3">marketing&nbsp;specialists.</span></p></div>;
       break;
     case BannerType.GoodCompany: 
       className="good-company";
@@ -57,6 +58,11 @@ export default function BannerText(props: BannerTextProp) {
       className="lost";
       header= "Hmm, seems like you’re lost";
       text= <div className={className}><p>This page may have been deleted, or simply hasn’t been created yet!</p></div>;
+      break;
+    case BannerType.PixelPushers: 
+      className="pixel-pushers";
+      header= "Pixel pushers and dream weavers";
+      text= <div className={className}><p>Our portfolio of clients to date include independent professionals, legal firms, community associations, and local businesses.</p></div>;
       break;
   }
   

@@ -15,7 +15,9 @@
     display: flex;
     align-items: flex-start;
     @media only screen and (max-width: 769px){
-      display: none !important;
+      margin-top: 2rem;
+      flex-direction: column;
+      align-items: center;
     }
     .blurb {
       padding: 1vh 3%;
@@ -23,18 +25,6 @@
       @media only screen and (max-width: 769px){
         width: 80%;
       }
-    }
-  }
-  .mobile-blurbs {
-    margin-top: 5vh;
-    @media only screen and (min-width: 769px){
-      display: none;
-    }
-    .BrainhubCarouselItem {
-      opacity: 0.2;
-    }
-    .BrainhubCarouselItem--active {
-      opacity: 1;
     }
   }
   hr {
@@ -56,9 +46,6 @@
     margin-left: 0;
     .process-card {
       margin-bottom: 5rem;
-    }
-    @media only screen and (max-width: 769px){
-      width: 100%;
     }
   }
   .contact-form {

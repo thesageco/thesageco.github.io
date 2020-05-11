@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Router,
   Switch,
@@ -17,10 +17,11 @@ export default {
 };
 
 export const Default = () =>  {
+  const [visible, setVisible] = useState(false);
   return (
     <Router history={history}>
       <LanguageSetStore.Provider value={action('LangChanged')}>
-        <Hamburger />
+        <Hamburger visible={visible} setVisible={(val) => setVisible(val)}/>
       </LanguageSetStore.Provider>
     </Router>
   );

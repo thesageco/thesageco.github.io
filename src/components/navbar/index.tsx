@@ -10,10 +10,11 @@ import './index.scss';
 
 interface NavbarProps {
   type?: number;
+  hidden: boolean;
 }
 
 function Navbar(props: NavbarProps) {
-  const {type = 1} = props;
+  const {type = 1, hidden=false} = props;
   const [active, setActive] = useState(0);
   
   const nav:any = {
@@ -21,6 +22,10 @@ function Navbar(props: NavbarProps) {
     "/about": 1,
   }
   
+  
+  if (hidden) {
+    return <></>
+  }
   if(active !== nav[window.location.pathname]){
     setActive(nav[window.location.pathname])
   }
@@ -28,7 +33,9 @@ function Navbar(props: NavbarProps) {
     return (
       <div className="navbar-back">
         <nav className="container">
-          {Button({type: ButtonType.White, href: "/", text:<span><img src={right_arrow} />Return</span>})}
+          <div className="left" style={{flex: 1}}>
+            {Button({type: ButtonType.White, href: "/", text:<span><img src={right_arrow} alt="back arrow"/>Return</span>})}
+          </div>
           <img className="logo" src={sage_icon} alt="sage icon"/>
         </nav>
       </div>

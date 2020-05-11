@@ -4,6 +4,7 @@ import './index.scss';
 interface BlurbProp {
   name: String;
   text: String; 
+  key?: number;
 }
 export default function Blurb(props: BlurbProp) {
   

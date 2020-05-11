@@ -1,7 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './index.scss';
-import Navbar from '../../components/navbar';
-import Contact from '../../components/contact';
 import { BannerType, BannerText } from '../../components/banner-text';
 
 import lost from '../../assets/404/lost.svg'
@@ -9,7 +7,6 @@ import lost from '../../assets/404/lost.svg'
 export default function FourOhFour() {
   return (
     <>
-      {Navbar({type: 0})}
       <div className="fourohfour">
         {BannerText({
           type: BannerType.Lost

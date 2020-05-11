@@ -1,39 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './index.scss';
 // import Dropdown from '../dropdown';
 import { slide as Menu } from 'react-burger-menu'
 
+interface HamburgerProp {
+  visible: boolean;
+  setVisible: (val: boolean) => void;
+}
 
-function Hamburger() {  
+function Hamburger({
+  visible,
+  setVisible,
+}: HamburgerProp) {  
   return (
     <div className="burger">
-      <Menu width={ '60%' }>
-        <div className="large-height">
-          <div className="top"> 
-            <Link className="menu-item" to="/work">Our Work</Link>
-            <Link className="menu-item" to="/about">About Us</Link>
-          </div>
-          {
-            /*
-            Dropdown({
-                options: 
-                [{
-                  header: "Our Process",
-                  children: ["How we work", "FAQs"],
-                  link: ["1", "2"],
-                }, {
-                  header: "Information",
-                  children: ["Our Team", "Manifesto"],
-                  link: ["1", "2"],
-                }]
-            })*/
-          }
-          <div className="bottom">
-            <Link className="menu-item" to="/project">Start a Project</Link>
-          </div>
+      <div 
+        className={`burger-button ${visible ? "invisible" : "visible"}`} 
+        style={{fontSize: "2rem"}}
+        onClick={()=>setVisible(true)}
+      >
+        <i className="far fa-bars icon-4x"></i>
+      </div>
+      <div 
+        className={`burger-cross ${visible ? "visible" : "invisible"}`} 
+        style={{fontSize: "2rem"}}
+        onClick={()=>setVisible(false)}
+      >
+          <i className="far fa-times icon-4x"></i>
+      </div>
+      <div className={`large-height ${visible ? "visible" : "invisible"}`}>
+        <div className="links">
+          <Link className="menu-item" to="/work" onClick={()=>setVisible(false)}>Our Work</Link>
+          <Link className="menu-item" to="/about" onClick={()=>setVisible(false)}>About Us</Link>
+          <Link className="menu-item" to="/project" onClick={()=>setVisible(false)}>Start a Project</Link>
         </div>
-      </Menu>
+      </div>
     </div>
   );
 
