@@ -2,7 +2,7 @@
   "name": "overbrook-ca",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thesage.co/website/",
+  "homepage": "https://thesage.co/",
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.15",
     "@storybook/addon-console": "^1.2.1",
