@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga';
 import './index.scss';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
@@ -20,7 +21,9 @@ import building from '../../assets/process/building.png';
 import peace2 from '../../assets/process/peace.png';
 
 export default function Home() {
-
+  useEffect(() => {
+    ReactGA.pageview('/');  
+  }, [])
   return (
   <>
     <div className="home">

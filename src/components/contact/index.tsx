@@ -1,4 +1,7 @@
 import React, { useState, FormEvent } from 'react';
+import ReactGA from 'react-ga';
+import handleFormSubmit from './form-submission-handler.js'
+
 import './index.scss';
 import fun from '../../assets/project/fun.svg'
 import right_arrow from '../../assets/icons/right-arrow.svg';
@@ -7,39 +10,52 @@ interface ContactProps {
   fullForm?: boolean;
   submissionCallback?: (e: boolean) => void;
 }
-export default function Contact(props: ContactProps) {
+export default function Contact({
+  fullForm, 
+  submissionCallback
+}: ContactProps) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [honey, setHoney] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [clicked, setClicked] = useState(false);
   
+  const sendEmailForm = "https://script.google.com/macros/s/AKfycbwFZe7sEl1NGMgYKVWDj6_ooX4Z1kPD_ZyRxTKLgO7ycymdCc_f/exec"
+  
   const toggleSubmit = () => {
     setSubmitted(true);
-    if(props.submissionCallback){
-      props.submissionCallback(true);
-    }
+    submissionCallback && submissionCallback(true);
   }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setClicked(true);
-    setTimeout(() => {
-      toggleSubmit();
-    }, 3000);
+    ReactGA.event({
+      category: 'Project',
+      action: 'Form Submitted'
+    });
+
+    handleFormSubmit(e, toggleSubmit);
   }
   
-  if(props.fullForm && submitted) {
+  if(fullForm && submitted) {
     return (
       <div className="contact-us">
         <img className="fun" src={fun} alt="having-fun"/>
       </div>
     )
   }
-  if(props.fullForm) {
+  if(fullForm) {
     return (
       <div className="contact-us">
-        <form className="full-form" id="gform" onSubmit={handleSubmit}>
+        <form 
+          className="full-form" 
+          id="gform" 
+          method="POST"
+          onSubmit={handleSubmit}
+          action={sendEmailForm}
+        >
           <div className="name-email">
             <input
               name="name"
@@ -70,8 +86,16 @@ export default function Contact(props: ContactProps) {
               disabled={submitted}
             />
           </div>
+          <input
+            className="ohgg"
+            type="text"
+            value={honey}
+            onChange={e => setHoney(e.target.value)}
+            placeholder="honey"
+            disabled={submitted}
+          />
           <div className="send">
-            <button type="submit" disabled={submitted}>{clicked ? (submitted?"Submitted!":<div className="loader"></div>):<span>Send Message<img src={right_arrow} alt="submit arrow"/></span>}</button>
+            <button type="submit" disabled={submitted}>{clicked ? "Submitted!":<span>Send Message<img src={right_arrow} alt="submit arrow"/></span>}</button>
           </div>
         </form>
       </div>
@@ -79,7 +103,12 @@ export default function Contact(props: ContactProps) {
   }
   return (
     <div className="contact-us">
-      <form id="gform" onSubmit={handleSubmit}>
+      <form 
+        id="gform" 
+        method="POST"
+        onSubmit={handleSubmit}
+        action={sendEmailForm}
+      >
         <div className="name-email">
           <input
             name="email"
@@ -91,7 +120,7 @@ export default function Contact(props: ContactProps) {
             disabled={submitted}
           />
           <div className="send">
-            <button type="submit" disabled={submitted}>{clicked ? (submitted?"Submitted!":<div className="loader"></div>):"Contact Us"}</button>
+            <button type="submit" disabled={submitted}>{clicked ? "Submitted!":"Contact Us"}</button>
           </div>
         </div>
       </form>

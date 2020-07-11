@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga';
 import './index.scss';
 import Contact from '../../components/contact';
 import ProcessCard from '../../components/process-card';
@@ -6,11 +7,17 @@ import { BannerType, BannerText } from '../../components/banner-text';
 
 import who_we_are from '../../assets/about/who-we-are.svg';
 import product_iteration from '../../assets/about/product_iteration.svg';
+import lvmh from '../../assets/about/lvmh.svg';
+import km from '../../assets/about/kitchenmate.svg';
+import wish from '../../assets/about/wish.svg';
+import waterloop from '../../assets/about/waterloop.svg';
 import emile from '../../assets/team/emile.jpg';
 import aditya from '../../assets/team/aditya.jpeg';
 
 export default function About() {
-
+  useEffect(() => {
+    ReactGA.pageview('/about');  
+  }, [])
   return (
   <>
     <div className="about container">
@@ -57,6 +64,18 @@ export default function About() {
       <div className="companies">
         <p>...and have been trusted by some of the best.</p>
         <div className="logos">
+          <div className="logo">
+            <img src={lvmh} alt="lmvh logo"/>
+          </div>
+          <div className="logo">
+            <img src={km} alt="km logo"/>
+          </div>
+          <div className="logo">
+            <img src={wish} alt="wish logo"/>
+          </div>
+          <div className="logo">
+            <img src={waterloop} alt="waterloop logo"/>
+          </div>
         </div>
       </div>
       <div className="hr"></div>

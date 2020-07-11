@@ -31,9 +31,9 @@ function Hamburger({
       </div>
       <div className={`large-height ${visible ? "visible" : "invisible"}`}>
         <div className="links">
-          <Link className="menu-item" to="/work" onClick={()=>setVisible(false)}>Our Work</Link>
-          <Link className="menu-item" to="/about" onClick={()=>setVisible(false)}>About Us</Link>
-          <Link className="menu-item" to="/project" onClick={()=>setVisible(false)}>Start a Project</Link>
+          <Link className="menu-item" to={process.env.PUBLIC_URL + "/work"} onClick={()=>setVisible(false)}>Our Work</Link>
+          <Link className="menu-item" to={process.env.PUBLIC_URL + "/about"} onClick={()=>setVisible(false)}>About Us</Link>
+          <Link className="menu-item" to={process.env.PUBLIC_URL + "/project"} onClick={()=>setVisible(false)}>Start a Project</Link>
         </div>
       </div>
     </div>

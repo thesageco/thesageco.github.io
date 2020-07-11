@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactGA from 'react-ga';
 import './index.scss';
 import Contact from '../../components/contact';
 import { BannerType, BannerText } from '../../components/banner-text';
 export default function Project() {
+  useEffect(() => {
+    ReactGA.pageview('/project');  
+  }, [])
   const [submitted, setSubmitted] = useState(false);
   return (
     <>

@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+import ReactGA from 'react-ga';
+import queryString from 'query-string';
+
 import './App.scss';
 
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -25,32 +28,38 @@ const LanguageStore = React.createContext({});
 
 export default function App() {
   const [visible, setVisible] = useState<boolean>(false);
+  const params = queryString.parse(document.location.search);
+
+  ReactGA.initialize("UA-126253123-1", {
+    titleCase: false,
+    debug: true,
+  });
   
   return (
     <div className="app">
-      <Router basename="/">
+      <Router basename={process.env.PUBLIC_URL}>
         <ScrollToTop />
         <Switch>
-          <Route path="/project">
+          <Route path={process.env.PUBLIC_URL + "/project"}>
             <Navbar hidden={false} type={0}/>
             <Project />
           </Route>
-          <Route path="/about">
+          <Route path={process.env.PUBLIC_URL + "/about"}>
             <Navbar hidden={visible}/>
             <Hamburger visible={visible} setVisible={(val) => setVisible(val)}/>
             {!visible && <About />}
           </Route>
-          <Route path="/work">
+          <Route path={process.env.PUBLIC_URL + "/work"}>
             <Navbar hidden={visible}/>
             <Hamburger visible={visible} setVisible={(val) => setVisible(val)}/>
             {!visible && <Work />}
           </Route>
-          <Route exact path="/">
+          <Route exact path={process.env.PUBLIC_URL + "/"}>
             <Navbar hidden={visible}/>
             <Hamburger visible={visible} setVisible={(val) => setVisible(val)}/>
             {!visible && <Home />}
           </Route>
-          <Route path="/">
+          <Route path={process.env.PUBLIC_URL + "/"}>
             <Navbar hidden={false} type={0}/>
             <FourOhFour />
           </Route>

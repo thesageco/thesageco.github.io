@@ -34,7 +34,7 @@ function Navbar(props: NavbarProps) {
       <div className="navbar-back">
         <nav className="container">
           <div className="left" style={{flex: 1}}>
-            {Button({type: ButtonType.White, href: "/", text:<span><img src={right_arrow} alt="back arrow"/>Return</span>})}
+            {Button({type: ButtonType.White, href: process.env.PUBLIC_URL + "/", text:<span><img src={right_arrow} alt="back arrow"/>Return</span>})}
           </div>
           <img className="logo" src={sage_icon} alt="sage icon"/>
         </nav>
@@ -47,11 +47,11 @@ function Navbar(props: NavbarProps) {
     <div className="navbar">
       <nav className="container">
         <div className="left">
-          <Link to="/" onClick={()=>setActive(0)}>
+          <Link to={process.env.PUBLIC_URL + "/"} onClick={()=>setActive(0)}>
             <img src={logo} alt="sage logo"/>
           </Link>
-          <Link className={`hide-on-mobile ${active === 0?"active":""}` } to="/work" onClick={()=>setActive(0)}>Our Work</Link>
-          <Link className={`hide-on-mobile ${active === 1?"active":""}` } to="/about" onClick={()=>setActive(1)}>About Us</Link>
+          <Link className={`hide-on-mobile ${active === 0?"active":""}` } to={process.env.PUBLIC_URL + "/work"} onClick={()=>setActive(0)}>Our Work</Link>
+          <Link className={`hide-on-mobile ${active === 1?"active":""}` } to={process.env.PUBLIC_URL + "/about"} onClick={()=>setActive(1)}>About Us</Link>
           {/*
             Dropdown({
                 className: "hide-on-mobile",
@@ -70,7 +70,7 @@ function Navbar(props: NavbarProps) {
           }
         </div>
         <div className="right">
-          <Link className={active === 2?"active":""} to="/project" onClick={()=>setActive(2)}>Start a Project</Link>
+          <Link className={active === 2?"active":""} to={process.env.PUBLIC_URL + "/project"} onClick={()=>setActive(2)}>Start a Project</Link>
         </div>
       </nav>
     </div>

@@ -121,17 +121,10 @@ body {
     color: inherit;
   }
   .hr {
-    width: 60%;
-    @media only screen and (max-width: 1500px) and (min-width: 1024px){
-      width: 70%;
-    }
-    @media only screen and (max-width: 1024px) and (min-width: 769px){
-      width: 80%;
-    }
-    @media only screen and (max-width: 769px){
-      width: 100%;
-    }
-    margin: 5rem 0;
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 1px;
     background: #F2F2F2;
     border: 1px solid #F2F2F2;

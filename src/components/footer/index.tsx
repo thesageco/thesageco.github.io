@@ -8,9 +8,9 @@ export default function Footer() {
       <footer className="footer-content">
         <div className="align-as-col">
           <div className="left">
-            <Link to="/about">Our Team</Link>
-            <Link to="/terms">Terms and Conditions</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to={process.env.PUBLIC_URL + "/about"}>Our Team</Link>
+            <Link to={process.env.PUBLIC_URL + "/terms"}>Terms and Conditions</Link>
+            <Link to={process.env.PUBLIC_URL + "/privacy"}>Privacy Policy</Link>
           </div>
           <div className="right">
             <a target="blank" href="mailto:hello@thesage.co?Subject=Saying Hello!">Email</a>
