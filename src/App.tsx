@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import ReactGA from 'react-ga';
-import queryString from 'query-string';
 
 import './App.scss';
 
@@ -28,11 +27,9 @@ const LanguageStore = React.createContext({});
 
 export default function App() {
   const [visible, setVisible] = useState<boolean>(false);
-  const params = queryString.parse(document.location.search);
 
   ReactGA.initialize("UA-126253123-1", {
     titleCase: false,
-    debug: true,
   });
   
   return (

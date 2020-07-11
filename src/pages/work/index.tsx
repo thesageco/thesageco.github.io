@@ -3,7 +3,6 @@ import ReactGA from 'react-ga';
 import './index.scss';
 import Contact from '../../components/contact';
 import { BannerType, BannerText } from '../../components/banner-text';
-import {Button, ButtonType} from '../../components/button';
 import OurProject from '../../components/our-project';
 
 import antonio from "../../assets/work/antoniollaca.svg";

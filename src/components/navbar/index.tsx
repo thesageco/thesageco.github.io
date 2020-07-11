@@ -18,16 +18,16 @@ function Navbar(props: NavbarProps) {
   const [active, setActive] = useState(0);
   
   const nav:any = {
-    "/work": 0,
-    "/about": 1,
+    "#/work": 0,
+    "#/about": 1,
   }
   
   
   if (hidden) {
     return <></>
   }
-  if(active !== nav[window.location.pathname]){
-    setActive(nav[window.location.pathname])
+  if(active !== nav[window.location.hash]){
+    setActive(nav[window.location.hash])
   }
   if(type !== 1){
     return (
